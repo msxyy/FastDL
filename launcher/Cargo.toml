@@ -1,0 +1,11 @@
+[package]
+name = "fastdl-launcher"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "fastdl-launcher"
+path = "src/main.rs"
+
+[dependencies]
+# 无外部依赖，纯 std，编译超快

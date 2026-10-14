@@ -1,0 +1,30 @@
+{
+    "manifest_version":  3,
+    "name":  "FastDL Bridge",
+    "version":  "0.5.0",
+    "description":  "把浏览器下载交给本地 FastDL 引擎",
+    "permissions":  [
+                        "downloads",
+                        "sidePanel",
+                        "notifications",
+                        "nativeMessaging"
+                    ],
+    "host_permissions":  [
+                             "http://127.0.0.1:6800/*"
+                         ],
+    "background":  {
+                       "service_worker":  "background.js"
+                   },
+    "action":  {
+                   "default_title":  "FastDL 任务面板"
+               },
+    "side_panel":  {
+                       "default_path":  "popup.html"
+                   },
+    "icons":  {
+                  "16":  "icon16.png",
+                  "48":  "icon48.png",
+                  "128":  "icon128.png"
+              },
+    "key":  "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1CdPnYtIWx6pkSdokz6P3LdHEJr6Up9DfkoPgTQTekVfIFg/0oq8B3IYi98iDpdYxlsWEJtCQPlMsZ5jt1gkbNGP8vRWQkgZ0U204spMA9Ukp2rt3OmQ0XpSji+D+MvCJK7LGcfBJuvfdZeFkKF5rvUYIxMFP8zHFUJSDLvDA4jEFodGOslGOXWnvGqsBzdCVg4OeR1mKKM/KCoMUc6SzuG1iBXGYQseVR7aOChePUKQjkCDUJYD3rWRQA56k3JvMwZdzi5t7ytDIiCga8HcABx1DMuCtjtNzMBPsRR2NFc5vJK9dbRnu359Q/uip9cPBksrpI2PtC+qr9Hp1VuDwQIDAQAB"
+}

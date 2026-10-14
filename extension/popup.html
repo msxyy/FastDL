@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      width: 100%;
+      font: 13px system-ui;
+      padding: 10px;
+      margin: 0;
+      box-sizing: border-box;
+      background: #f7f7f8;
+      min-height: 100vh;
+    }
+    h3 { margin: 0 0 8px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
+    h3 button { font-size: 11px; padding: 3px 8px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
+    h3 button:hover { background: #f0f0f0; }
+
+    .newtask { display: flex; gap: 6px; margin-bottom: 10px; }
+    .newtask input { flex: 1; min-width: 0; font-size: 12px; padding: 5px 8px; border: 1px solid #ccc; border-radius: 4px; outline: none; }
+    .newtask input:focus { border-color: #3b82f6; }
+    .newtask button { font-size: 12px; padding: 5px 12px; background: #3b82f6; color: #fff; border: 0; border-radius: 4px; cursor: pointer; white-space: nowrap; }
+    .newtask button:hover { background: #2563eb; }
+
+    .ratelimit { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-bottom: 10px; padding: 6px 8px; background: #fff; border-radius: 4px; flex-wrap: wrap; }
+    .ratelimit input[type="number"] { width: 70px; font-size: 12px; padding: 3px 6px; border: 1px solid #ccc; border-radius: 3px; }
+    .ratelimit .unit { color: #666; }
+
+    .task { background: #fff; border-radius: 6px; padding: 8px 10px; margin-bottom: 6px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
+    .task .name { font-weight: 500; word-break: break-all; font-size: 12px; color: #222; }
+    .task .meta { font-size: 11px; color: #666; margin-top: 4px; display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+    .bar { height: 4px; background: #e5e7eb; border-radius: 2px; margin-top: 6px; overflow: hidden; }
+    .bar > i { display: block; height: 100%; background: #3b82f6; transition: width .3s; }
+    .badge { border-radius: 3px; padding: 1px 6px; font-size: 10px; color: #fff; }
+    .state-running { background: #3b82f6; }
+    .state-completed { background: #10b981; }
+    .state-failed { background: #ef4444; }
+    .state-cancelled { background: #6b7280; }
+    .state-queued { background: #f59e0b; }
+    .state-paused { background: #8b5cf6; }
+    .state-interrupted { background: #9ca3af; }
+    .actions { display: flex; gap: 4px; margin-top: 6px; }
+    .actions button { font-size: 11px; padding: 3px 8px; border: 1px solid #ccc; background: #fff; border-radius: 3px; cursor: pointer; }
+    .actions button:hover { background: #f0f0f0; }
+    .actions button.danger { color: #dc2626; border-color: #fca5a5; }
+    .empty { text-align: center; color: #999; padding: 20px 0; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="newtask">
+    <input id="urlInput" type="text" placeholder="粘贴下载链接 / 磁力…" />
+    <button id="addBtn">添加</button>
+  </div>
+
+  <div class="ratelimit">
+    <label><input type="checkbox" id="rlEnabled" /> 限速</label>
+    <input type="number" id="rlValue" min="1" value="2048" />
+    <span class="unit">KB/s</span>
+  </div>
+
+  <h3>
+    <span>任务列表</span>
+    <button id="purge">清理已完成</button>
+  </h3>
+  <div id="list"><div class="empty">连接中...</div></div>
+  <script src="popup.js"></script>
+</body>
+</html>

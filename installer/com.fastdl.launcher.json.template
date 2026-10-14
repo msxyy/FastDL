@@ -1,0 +1,9 @@
+{
+  "name": "com.fastdl.launcher",
+  "description": "FastDL Native Messaging Host",
+  "path": "__LAUNCHER_PATH__",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://__EXTENSION_ID__/"
+  ]
+}

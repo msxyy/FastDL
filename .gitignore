@@ -1,0 +1,31 @@
+# ===== 编译产物 =====
+/target/
+/installer_output/
+
+# ===== 私钥与身份凭证（绝对不能上传）=====
+extension-key.xml
+extension-key.txt
+
+# ===== 运行时数据 =====
+/tasks.json
+/installer/tasks.json
+*.fastdl.meta
+*.fastdl.part*
+
+# ===== 日志 =====
+/logs/
+/installer/logs/
+*.log
+
+# ===== 系统/编辑器 =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# ===== 临时文件 =====
+*.old
+*.old.*
+*.bad
+*.merging
